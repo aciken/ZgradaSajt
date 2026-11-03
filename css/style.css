@@ -1672,15 +1672,15 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================================
-   Toše Jovanovića 30 – illustration, levels
+   Toše Jovanovića 30
    ========================================================================== */
 
-.page-hero-illustration { background-position: center 85%; }
-.hero-slide[style*="fasada.svg"] { background-position: center 85%; }
-.img-illustration { object-position: center 80%; }
+/* Building photo: keep the whole facade in view */
+.page-hero-photo { background-position: center 40%; }
+.hero-slide[style*="zgrada.jpg"] { background-position: center 40%; }
 
-/* Floor picker on an illustration: show the whole building, never crop */
-.picker-media.picker-media-fit { aspect-ratio: 16 / 10; }
+/* Floor picker on the facade photo: show the whole building, never crop */
+.picker-media.picker-media-fit { aspect-ratio: 1568 / 777; }
 
 /* Room-by-room breakdown inside a unit card */
 .apt-spaces { margin-top: 14px; font-size: 14px; }
@@ -1715,46 +1715,8 @@ p:last-child { margin-bottom: 0; }
 .apt-spaces dt { color: var(--muted); }
 .apt-spaces dd { margin: 0; font-weight: 500; color: var(--ink); white-space: nowrap; }
 
-/* Stacked levels card */
-.levels {
-	display: grid;
-	gap: 8px;
-	padding: 12px;
-	border-radius: var(--radius-lg);
-	background: var(--white);
-	box-shadow: var(--shadow);
-}
-.levels li {
-	display: flex;
-	align-items: center;
-	gap: 18px;
-	padding: 18px 20px;
-	border-radius: var(--radius);
-	background: var(--bg);
-}
-.levels li:first-child { margin: 0 14%; background: var(--accent-50); }
-.levels strong { display: block; font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--ink); }
-.levels p { margin: 2px 0 0; font-size: 14.5px; }
-.level-tag {
-	display: grid;
-	place-items: center;
-	flex-shrink: 0;
-	width: 48px;
-	height: 48px;
-	border-radius: 14px;
-	background: var(--ink);
-	font-family: var(--font-display);
-	font-size: 15px;
-	font-weight: 600;
-	color: var(--white);
-}
-.levels li:first-child .level-tag { background: var(--accent); }
-.levels li:last-child .level-tag { background: var(--muted); }
-
 @media (max-width: 600px) {
-	.picker-media.picker-media-fit { aspect-ratio: 16 / 10; }
-	.levels li:first-child { margin: 0 6%; }
-	.levels li { padding: 14px 16px; gap: 14px; }
+	.picker-media.picker-media-fit { aspect-ratio: 1568 / 777; }
 }
 
 /* "Uskoro" (coming soon) project ---------------------------------------- */
@@ -1841,3 +1803,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Honeypot field for spam bots – never visible */
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Facade photo in "O projektu" */
+.overview-photo { box-shadow: var(--shadow); }
+.overview-photo img { height: auto; }
