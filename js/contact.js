@@ -64,12 +64,15 @@
 		var data = new FormData(form);
 		var projectName = project.value ? project.options[project.selectedIndex].text : '';
 		var endpoint = form.dataset.endpoint;
+		var subject = 'Upit sa sajta' + (projectName ? ' – ' + projectName : '');
 
 		// Option A: a form service is configured – send directly
 		if (endpoint) {
 			var button = form.querySelector('button[type="submit"]');
 			button.disabled = true;
 			setStatus('Slanje…');
+			data.set('_subject', subject);
+			data.set('projekat', projectName || '—');
 			fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
 				.then(function (res) {
 					if (!res.ok) throw new Error(res.status);
@@ -84,7 +87,6 @@
 		}
 
 		// Option B: no backend – open the visitor's email app with everything filled in
-		var subject = 'Upit sa sajta' + (projectName ? ' – ' + projectName : '');
 		var body =
 			data.get('poruka') + '\n\n' +
 			'—\n' +
