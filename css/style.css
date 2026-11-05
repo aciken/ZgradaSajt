@@ -1680,7 +1680,7 @@ p:last-child { margin-bottom: 0; }
 .hero-slide[style*="zgrada.jpg"] { background-position: center 40%; }
 
 /* Floor picker on the facade photo: show the whole building, never crop */
-.picker-media.picker-media-fit { aspect-ratio: 1568 / 777; }
+.picker-media.picker-media-fit { aspect-ratio: 1576 / 766; }
 
 /* Room-by-room breakdown inside a unit card */
 .apt-spaces { margin-top: 14px; font-size: 14px; }
@@ -1716,7 +1716,7 @@ p:last-child { margin-bottom: 0; }
 .apt-spaces dd { margin: 0; font-weight: 500; color: var(--ink); white-space: nowrap; }
 
 @media (max-width: 600px) {
-	.picker-media.picker-media-fit { aspect-ratio: 1568 / 777; }
+	.picker-media.picker-media-fit { aspect-ratio: 1576 / 766; }
 }
 
 /* "Uskoro" (coming soon) project ---------------------------------------- */
@@ -1807,3 +1807,125 @@ p:last-child { margin-bottom: 0; }
 /* Facade photo in "O projektu" */
 .overview-photo { box-shadow: var(--shadow); }
 .overview-photo img { height: auto; }
+
+/* ==========================================================================
+   Clickable project card + phone polish
+   ========================================================================== */
+
+/* "Pogledajte projekat" pill on the project photo */
+.project-open {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 18px;
+	border-radius: 999px;
+	background: var(--accent);
+	box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .45);
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--white);
+	transition: background-color .25s, transform .25s var(--ease);
+}
+.project-open svg { transition: transform .25s var(--ease); }
+.project-media:hover .project-open { background: var(--accent-600); }
+.project-media:hover .project-open svg { transform: translateX(3px); }
+
+.project-title-link { color: inherit; transition: color .2s; }
+.project-title-link:hover { color: var(--accent-600); }
+
+/* Tap feedback on touch screens */
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.btn:active { transform: scale(.97); }
+.project-media:active img,
+.other-card:active img { transform: scale(1.03); }
+.chip:active,
+.floor-btn:active,
+.contact-card:active,
+.cta-link:active { transform: scale(.98); }
+
+@media (max-width: 600px) {
+	/* Tighter vertical rhythm so pages are shorter to scroll */
+	.section { padding: 64px 0; }
+	.section-head { margin-bottom: 32px; }
+	h2 { font-size: clamp(30px, 8.6vw, 38px); }
+	.eyebrow { margin-bottom: 12px; font-size: 12px; letter-spacing: .12em; }
+
+	/* Home hero */
+	.hero-content { padding-top: 32px; padding-bottom: 28px; }
+	.pill { margin-bottom: 20px; }
+	.hero h1 { margin-bottom: 18px; }
+	.hero-lead { margin-bottom: 26px; font-size: 16px; }
+
+	/* Stats strip */
+	.stat { padding: 22px 14px; }
+	.stat strong { font-size: 34px; }
+
+	/* Project cards: clear tap target, no decorative numbers */
+	.project-num { display: none; }
+	.project-media { border-radius: var(--radius); aspect-ratio: 4 / 3.2; }
+	.project-tag { top: 14px; left: 14px; padding: 7px 12px; font-size: 12px; }
+	.project-open { right: 14px; bottom: 14px; padding: 11px 16px; font-size: 13.5px; }
+	.project-body h3 { font-size: 30px; margin-bottom: 12px; }
+	.project-body > p { font-size: 15.5px; }
+	.facts { margin: 20px 0 24px; gap: 6px; }
+	.facts li { padding: 7px 12px; font-size: 13px; }
+	.project-body .btn { width: 100%; }
+	.project + .project { margin-top: 56px; }
+
+	/* About */
+	.about-grid { gap: 40px; }
+	.about-quote { font-size: 16px; padding: 22px 24px; }
+
+	/* Steps */
+	.step { padding: 26px 22px; }
+	.step-icon { width: 44px; height: 44px; margin-bottom: 20px; }
+	.step h3 { font-size: 21px; }
+	.steps { gap: 12px; }
+
+	/* Orange contact card */
+	.cta-card { padding: 32px 20px; border-radius: var(--radius); gap: 24px; }
+	.cta-copy p { font-size: 16px; }
+	.cta-link { gap: 12px; padding: 12px 14px 12px 12px; font-size: 16px; overflow-wrap: normal; }
+	.cta-icon { width: 42px; height: 42px; border-radius: 12px; }
+
+	/* Contact page cards */
+	.contact-card { font-size: 16px; padding: 12px 14px 12px 12px; gap: 12px; overflow-wrap: normal; }
+	.contact-icon { width: 42px; height: 42px; }
+	.form-card { padding: 26px 20px; border-radius: var(--radius); }
+	.map-wrap { height: 320px; border-radius: var(--radius); }
+
+	/* Building page hero */
+	.page-hero { padding-bottom: 32px; }
+	.page-hero h1 { font-size: clamp(38px, 11vw, 52px); margin-bottom: 18px; }
+	.hero-card { padding: 16px 20px; }
+	.hero-card strong { font-size: 22px; }
+	.breadcrumb { margin-bottom: 16px; }
+
+	/* Specs table: label and value on one row */
+	.spec-list div { flex-direction: row; align-items: baseline; gap: 16px; padding: 12px 0; font-size: 14.5px; }
+	.spec-list dt { flex: 0 0 38%; }
+	.spec-list dd { flex: 1; text-align: left; }
+
+	/* Floor picker + unit list */
+	.picker-media { border-radius: var(--radius); }
+	.picker-hint { left: 10px; bottom: 10px; padding: 6px 11px; font-size: 12px; }
+	.floor-btn { padding: 13px 14px; }
+	.apt-controls { gap: 14px; margin-bottom: 20px; padding-bottom: 18px; }
+
+	/* "Uskoro" cards: keep the big word clear of the title */
+	.other-soon .soon-panel { align-items: start; padding-top: 34px; }
+	.other-soon .soon-panel span { font-size: 44px; }
+	.other-card,
+	.other-card:only-child { min-height: 240px; padding: 22px; border-radius: var(--radius); }
+	.other-card h3 { font-size: 26px; }
+
+	/* Footer: bigger tap targets */
+	.site-footer { padding-top: 56px; }
+	.footer-col li + li { margin-top: 0; }
+	.footer-col a,
+	.footer-col .soon-item { display: inline-flex; padding: 7px 0; }
+	.footer-bottom { gap: 8px; }
+}

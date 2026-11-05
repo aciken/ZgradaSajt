@@ -13,24 +13,24 @@ window.BUILDING = {
  },
  "image": {
   "src": "../images/tose-jovanovica-30/fasada-2.jpg",
-  "width": 1568,
-  "height": 777
+  "width": 1576,
+  "height": 766
  },
  "floors": [
   {
    "key": "vp",
    "label": "Visoko prizemlje",
-   "polygon": "139,425 1469,425 1469,580 139,580"
+   "polygon": "137,425 1469,425 1469,580 137,580"
   },
   {
    "key": "1",
    "label": "1. sprat",
-   "polygon": "139,255 1469,255 1469,425 139,425"
+   "polygon": "137,255 1469,255 1469,425 137,425"
   },
   {
    "key": "ps",
    "label": "Povučeni sprat",
-   "polygon": "274,131 1316,131 1316,255 274,255"
+   "polygon": "273,131 1316,131 1316,255 273,255"
   }
  ],
  "apartments": [
